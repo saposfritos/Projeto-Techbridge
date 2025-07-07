@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Meu Curso Online</title>
+  <!-- Ícone e fontes -->
+  <link style="width: 16px; height: 16px;" rel="icon" href="eniac-logo-jpg-1-removebg-preview-removebg-preview.png" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro:wght@400;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    /* =========== RESET & BASE =========== */
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:'Poppins',sans-serif;line-height:1.5;scroll-behavior:smooth;background:#fdfdfd;color:#333}
+    a{text-decoration:none;color:inherit}
+    img{max-width:100%;display:block}
+
+    /* =========== HEADER =========== */
+    header.topo{width:100%;position:fixed;top:0;left:0;background:#6200ea;color:#fff;z-index:1000;box-shadow:0 2px 6px rgba(0,0,0,.15);}
+    header .logo{display:flex;align-items:center;justify-content:space-between;padding:10px 20px;max-width:1200px;margin:auto;}
+    .imagemlogo{height:45px}
+    #menu-toggle{background:none;border:none;color:#fff;font-size:1.5rem;cursor:pointer;display:none}
+
+    /* ===== NAVIGATION ===== */
+    nav.menu-container{background:#6200ea}
+    ul.menu{display:flex;list-style:none;gap:24px;justify-content:center;padding:10px 0;transition:max-height .3s ease;}
+    ul.menu li a{color:#fff;font-weight:600;}
+    ul.menu li a:hover{opacity:.8}
+
+    /* Mobile nav */
+    @media(max-width:768px){
+      #menu-toggle{display:block}
+      ul.menu{flex-direction:column;align-items:center;max-height:0;overflow:hidden}
+      ul.menu.open{max-height:300px}
+    }
+
+    /* =========== SECTIONS WRAPPER =========== */
+    main{padding-top:100px}
+    section{padding:60px 20px;max-width:1200px;margin:0 auto}
+
+    /* =========== HOME / CAROUSEL =========== */
+    .carousel-container{position:relative;overflow:hidden;width:100%;height:420px;border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,.1);}
+
+    .carousel-slide{position:absolute;top:0;left:0;width:100%;height:100%;opacity:0;transition:opacity .8s ease-in-out;}
+    .carousel-slide.active{opacity:1;}
+
+    .carousel-slide img{width:100%;height:100%;object-fit:cover}
+
+    .arrow{position:absolute;top:50%;transform:translateY(-50%);background:rgba(0,0,0,.4);border:none;color:#fff;font-size:2rem;width:45px;height:45px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(2px);}
+    .arrow:hover{background:rgba(0,0,0,.65);}
+    .arrow.left{left:20px}
+    .arrow.right{right:20px}
+
+    /* =========== SOBRE, PROJETO, FEEDBACK (place‑holder styles) =========== */
+    .section-title{font-size:2rem;font-weight:700;margin-bottom:20px;color:#6200ea;text-align:center}
+
+    /* Simple card grid */
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px}
+    .card{background:#fff;border-radius:12px;box-shadow:0 4px 8px rgba(0,0,0,.08);overflow:hidden;display:flex;flex-direction:column}
+    .card img{height:160px;object-fit:cover}
+    .card .content{padding:20px}
+    .card h3{margin-bottom:12px;font-size:1.2rem;color:#6200ea}
+
+    /* ===== FEEDBACK FORM ===== */
+    form.feedback{display:flex;flex-direction:column;gap:12px;max-width:500px;margin:auto}
+    form.feedback input,form.feedback textarea{width:100%;padding:12px;border:1px solid #ccc;border-radius:8px;font-family:inherit}
+    form.feedback button{padding:12px;border:none;border-radius:8px;font-weight:600;background:#6200ea;color:#fff;cursor:pointer}
+    form.feedback button:hover{opacity:.9}
+
+    #btn-topo{position:fixed;bottom:24px;right:24px;background:#6200ea;color:#fff;width:45px;height:45px;display:flex;align-items:center;justify-content:center;border-radius:50%;font-size:1.2rem;box-shadow:0 4px 12px rgba(0,0,0,.2);opacity:0;transition:opacity .3s}
+    #btn-topo.show{opacity:1}
+
+    /* =========== FOOTER =========== */
+    footer{background:#f1f1f1;padding:24px 20px;margin-top:60px}
+    .container--footer{max-width:1200px;margin:auto;text-align:center}
+    .redes{display:flex;justify-content:center;gap:20px;margin-bottom:8px}
+    .redes a{font-size:1.4rem;color:var(--color);}
+  </style>
+</head>
+<body>
+  <!-- Âncora topo -->
+  <div id="topo"></div>
+
+  <!-- ===== HEADER ===== -->
+  <header class="topo" id="header">
+    <div class="logo">
+      <a href="#home"><img src="logo.png" alt="logo branca" class="imagemlogo"></a>
+      <button id="menu-toggle" aria-label="Abrir menu"><i class="fas fa-bars"></i></button>
+    </div>
+    <nav class="menu-container">
+      <ul class="menu">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#projeto">Projeto</a></li>
+        <li><a href="#feedback">Feedback</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ===== MAIN ===== -->
+  <main>
+    <!-- ===== HOME ===== -->
+    <section id="home">
+      <div class="carousel-container">
+        <div class="carousel-slide active"><img src="logica-de-programacao-na-pratica.jpg" alt="Curso 1"></div>
+        <div class="carousel-slide"><img src="ia.jpg" alt="Curso 2"></div>
+        <div class="carousel-slide"><img src="php.jpg" alt="Curso 3"></div>
+        <button class="arrow left" aria-label="Slide anterior">&#10094;</button>
+        <button class="arrow right" aria-label="Próximo slide">&#10095;</button>
+      </div>
+    </section>
+
+    <!-- ===== SOBRE ===== -->
+    <section id="sobre">
+      <h2 class="section-title">Sobre o Projeto</h2>
+      <p style="max-width:800px;margin:auto;text-align:center">O <strong>Meu Curso Online</strong> é uma plataforma educacional inspirada em grandes marketplaces de cursos, criando pontes entre instrutores e alunos através de tecnologia acessível e experiência de aprendizagem interativa.</p>
+    </section>
+
+    <!-- ===== PROJETO ===== -->
+    <section id="projeto">
+      <h2 class="section-title">Projetos em Destaque</h2>
+      <div class="grid">
+        <div class="card"><img src="unnamed.png" alt="Juntos pelo Bem"><div class="content"><h3>Juntos pelo Bem</h3><p>A Faculdade Eniac e sua comunidade unidas na doação de roupas demonstram impacto social e empatia.</p></div></div>
+        <div class="card"><img src="img-pro3.jpg" alt="Alimento e Esperança"><div class="content"><h3>Alimento e Esperança</h3><p>Entrega de cestas básicas realizada por estudantes reforça o compromisso com um futuro justo e solidário.</p></div></div>
+        <div class="card"><img src="medicina].png" alt="Esperança em Cada Consulta"><div class="content"><h3>Esperança em Cada Consulta</h3><p>Profissionais de saúde levam cuidado e dignidade à comunidade, mostrando a força da educação.</p></div></div>
+      </div>
+    </section>
+
+    <!-- ===== FEEDBACK ===== -->
+    <section id="feedback">
+      <h2 class="section-title">Feedback</h2>
+      <form id="formFeedback" class="feedback">
+        <input type="text" id="nome" placeholder="Seu nome" required>
+        <textarea id="comentario" rows="4" placeholder="Comentário" required></textarea>
+        <button type="submit">Enviar Avaliação</button>
+      </form>
+      <div id="feedbackList" style="max-width:500px;margin:24px auto 0;"></div>
+    </section>
+  </main>
+
+  <!-- BOTÃO TOPO -->
+  <a href="#topo" id="btn-topo" title="Voltar ao topo"><i class="fas fa-arrow-up"></i></a>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <div class="container--footer">
+      <div class="redes">
+        <a href="https://www.instagram.com/eniac.oficial/" style="--color:#E1306c"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://www.youtube.com/@eniac.oficial" style="--color:#ff000f"><i class="fa-brands fa-youtube"></i></a>
+        <a href="https://www.facebook.com/eniac.oficial/?locale=pt_BR" style="--color:#4267b2"><i class="fa-brands fa-facebook-f"></i></a>
+      </div>
+      <p>&copy; 2025 Meu Curso Online. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- ===== SCRIPT ===== -->
+  <script>
+    /* ===== MENU TOGGLE ===== */
+    const menuToggle=document.getElementById('menu-toggle');
+    const menu=document.querySelector('.menu');
+    menuToggle.addEventListener('click',()=>{
+      menu.classList.toggle('open');
+    });
+
+    /* ===== CAROUSEL ===== */
+    const slides=document.querySelectorAll('.carousel-slide');
+    const btnPrev=document.querySelector('.arrow.left');
+    const btnNext=document.querySelector('.arrow.right');
+    let current=0;let timer;
+
+    function showSlide(i){slides.forEach((s,idx)=>{s.classList.toggle('active',idx===i)});}
+    function next(){current=(current+1)%slides.length;showSlide(current);} 
+    function prev(){current=(current-1+slides.length)%slides.length;showSlide(current);} 
+    btnNext.addEventListener('click',()=>{next();resetTimer();});
+    btnPrev.addEventListener('click',()=>{prev();resetTimer();});
+    function startTimer(){timer=setInterval(next,5000);} 
+    function resetTimer(){clearInterval(timer);startTimer();}
+    showSlide(current);startTimer();
+
+    /* ===== BOTÃO TOPO VISIBILIDADE ===== */
+    const btnTopo=document.getElementById('btn-topo');
+    window.addEventListener('scroll',()=>{btnTopo.classList.toggle('show',window.scrollY>300);});
+
+    /* ===== FEEDBACK FORM ===== */
+    const form=document.getElementById('formFeedback');const list=document.getElementById('feedbackList');
+    form.addEventListener('submit',e=>{e.preventDefault();const nome=document.getElementById('nome').value.trim();const comentario=document.getElementById('comentario').value.trim();if(nome&&comentario){const div=document.createElement('div');div.style.border='1px solid #ccc';div.style.borderRadius='8px';div.style.padding='12px';div.style.marginBottom='12px';div.innerHTML=`<strong>${nome}</strong><p>${comentario}</p>`;list.prepend(div);form.reset();}}
+    );
+  </script>
+</body>
+</html>
