@@ -10,7 +10,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
-    /* =========== RESET & BASE =========== */
     * {
       margin: 0;
       padding: 0;
@@ -29,7 +28,6 @@
       padding: 20px;
     }
 
-    /* =========== CONTAINER PRINCIPAL =========== */
     .signup-container {
       background: #fdfdfd;
       border-radius: 16px;
@@ -54,7 +52,6 @@
       }
     }
 
-    /* =========== LADO ESQUERDO - FORMULÁRIO =========== */
     .form-side {
       padding: 50px 40px;
       display: flex;
@@ -80,7 +77,6 @@
       font-weight: 400;
     }
 
-    /* =========== FORMULÁRIO =========== */
     .signup-form {
       display: flex;
       flex-direction: column;
@@ -144,7 +140,6 @@
       color: #999;
     }
 
-    /* =========== SELETOR DE GÊNERO =========== */
     .gender-options {
       display: flex;
       gap: 12px;
@@ -187,7 +182,6 @@
       border-color: #6200ea;
     }
 
-    /* =========== CHECKBOX DE TERMOS =========== */
     .terms-checkbox {
       display: flex;
       align-items: flex-start;
@@ -219,7 +213,6 @@
       text-decoration: underline;
     }
 
-    /* =========== BOTÃO DE CADASTRO =========== */
     .signup-button {
       width: 100%;
       padding: 16px;
@@ -267,7 +260,6 @@
       transform: none;
     }
 
-    /* =========== DIVISOR =========== */
     .divider {
       display: flex;
       align-items: center;
@@ -285,7 +277,6 @@
       background: #e0e0e0;
     }
 
-    /* =========== BOTÕES SOCIAIS =========== */
     .social-buttons {
       display: flex;
       gap: 12px;
@@ -322,7 +313,6 @@
     .google { color: #db4437; }
     .facebook { color: #4267b2; }
 
-    /* =========== LINK DE LOGIN =========== */
     .login-link {
       text-align: center;
       margin-top: 20px;
@@ -341,7 +331,6 @@
       opacity: 0.8;
     }
 
-    /* =========== LADO DIREITO - BRANDING =========== */
     .branding-side {
       background: linear-gradient(135deg, #6200ea 0%, #8e24aa 100%);
       color: #fff;
@@ -429,7 +418,6 @@
       width: 20px;
     }
 
-    /* =========== RESPONSIVIDADE =========== */
     @media (max-width: 768px) {
       .signup-container {
         grid-template-columns: 1fr;
@@ -509,7 +497,6 @@
       }
     }
 
-    /* =========== ANIMAÇÕES EXTRAS =========== */
     .input-group {
       animation: fadeInUp 0.6s ease-out forwards;
       opacity: 0;
@@ -540,7 +527,6 @@
       }
     }
 
-    /* =========== INDICADOR DE FORÇA DA SENHA =========== */
     .password-strength {
       margin-top: 8px;
       height: 4px;
@@ -592,7 +578,6 @@
 </head>
 <body>
   <div class="signup-container">
-    <!-- Lado Esquerdo - Formulário -->
     <div class="form-side">
       <div class="form-header">
         <h2 class="form-title">Crie sua conta</h2>
@@ -747,18 +732,7 @@
         </button>
       </form>
 
-      <div class="divider">ou cadastre-se com</div>
-
-      <div class="social-buttons">
-        <button class="social-button" type="button">
-          <i class="fab fa-google google"></i>
-          Google
-        </button>
-        <button class="social-button" type="button">
-          <i class="fab fa-facebook-f facebook"></i>
-          Facebook
-        </button>
-      </div>
+      
 
       <div class="login-link">
         Já tem uma conta? <a href="login.html">Faça login aqui</a>
