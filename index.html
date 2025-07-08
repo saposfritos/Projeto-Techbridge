@@ -4,79 +4,548 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Meu Curso Online</title>
-  <!-- Ícone e fontes -->
-  <link style="width: 16px; height: 16px;" rel="icon" href="eniac-logo-jpg-1-removebg-preview-removebg-preview.png" type="image/x-icon">
+  <!-- Fontes -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro:wght@400;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
     /* =========== RESET & BASE =========== */
-    *{margin:0;padding:0;box-sizing:border-box}
-    body{font-family:'Poppins',sans-serif;line-height:1.5;scroll-behavior:smooth;background:#fdfdfd;color:#333}
-    a{text-decoration:none;color:inherit}
-    img{max-width:100%;display:block}
-
-    /* =========== HEADER =========== */
-    header.topo{width:100%;position:fixed;top:0;left:0;background:#6200ea;color:#fff;z-index:1000;box-shadow:0 2px 6px rgba(0,0,0,.15);}
-    header .logo{display:flex;align-items:center;justify-content:space-between;padding:10px 20px;max-width:1200px;margin:auto;}
-    .imagemlogo{height:45px}
-    #menu-toggle{background:none;border:none;color:#fff;font-size:1.5rem;cursor:pointer;display:none}
-
-    /* ===== NAVIGATION ===== */
-    nav.menu-container{background:#6200ea}
-    ul.menu{display:flex;list-style:none;gap:24px;justify-content:center;padding:10px 0;transition:max-height .3s ease;}
-    ul.menu li a{color:#fff;font-weight:600;}
-    ul.menu li a:hover{opacity:.8}
-
-    /* Mobile nav */
-    @media(max-width:768px){
-      #menu-toggle{display:block}
-      ul.menu{flex-direction:column;align-items:center;max-height:0;overflow:hidden}
-      ul.menu.open{max-height:300px}
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
-    /* =========== SECTIONS WRAPPER =========== */
-    main{padding-top:100px}
-    section{padding:60px 20px;max-width:1200px;margin:0 auto}
+    body {
+      font-family: 'Poppins', sans-serif;
+      line-height: 1.6;
+      scroll-behavior: smooth;
+      background: linear-gradient(135deg, #6200ea 0%, #8e24aa 100%);
+      color: #333;
+      min-height: 100vh;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    /* =========== HEADER =========== */
+    header.topo {
+      width: 100%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      background: #fff;
+      color: #333;
+      z-index: 1000;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    .navbar {
+      display: flex;
+      align-items: center;
+      padding: 12px 20px;
+      max-width: 1400px;
+      margin: 0 auto;
+      gap: 20px;
+    }
+
+    .logo-section {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .imagemlogo {
+      height: 40px;
+    }
+
+    /* ===== BARRA DE PESQUISA ===== */
+    .search-container {
+      flex: 1;
+      max-width: 500px;
+      position: relative;
+    }
+
+    .search-form {
+      display: flex;
+      align-items: center;
+      background: #f8f9fa;
+      border: 2px solid #e0e0e0;
+      border-radius: 50px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .search-form:focus-within {
+      border-color: #6200ea;
+      box-shadow: 0 0 0 3px rgba(98, 0, 234, 0.1);
+    }
+
+    .search-input {
+      flex: 1;
+      border: none;
+      background: transparent;
+      padding: 12px 20px;
+      font-size: 0.95rem;
+      outline: none;
+      color: #333;
+    }
+
+    .search-input::placeholder {
+      color: #666;
+    }
+
+    .search-btn {
+      background: none;
+      border: none;
+      padding: 12px 20px;
+      color: #666;
+      cursor: pointer;
+      transition: color 0.3s ease;
+    }
+
+    .search-btn:hover {
+      color: #6200ea;
+    }
+
+    /* ===== NAVEGAÇÃO PRINCIPAL ===== */
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .teach-link {
+      color: #333;
+      font-weight: 500;
+      font-size: 0.95rem;
+      padding: 8px 16px;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      white-space: nowrap;
+    }
+
+    .teach-link:hover {
+      background: #f5f5f5;
+      color: #6200ea;
+    }
+
+    /* ===== BOTÕES DE AUTENTICAÇÃO ===== */
+    .auth-buttons {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .login-btn {
+      color: #333;
+      font-weight: 500;
+      font-size: 0.95rem;
+      padding: 10px 20px;
+      border: 1px solid #333;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      background: transparent;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      text-align: center;
+    }
+
+    .login-btn:hover {
+      background: #333;
+      color: #fff;
+    }
+
+    .signup-btn {
+      background: #333;
+      color: #fff;
+      font-weight: 500;
+      font-size: 0.95rem;
+      padding: 10px 20px;
+      border: 1px solid #333;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      text-align: center;
+    }
+
+    .signup-btn:hover {
+      background: #555;
+      border-color: #555;
+    }
+
+    /* ===== RESPONSIVIDADE NAVBAR ===== */
+    @media (max-width: 1024px) {
+      .search-container {
+        max-width: 300px;
+      }
+      
+      .nav-links {
+        gap: 16px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .navbar {
+        padding: 12px 16px;
+        gap: 12px;
+      }
+
+      .search-container {
+        max-width: 250px;
+      }
+
+      .teach-link {
+        display: none;
+      }
+
+      .auth-buttons {
+        gap: 8px;
+      }
+
+      .login-btn,
+      .signup-btn {
+        padding: 8px 16px;
+        font-size: 0.9rem;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .search-container {
+        display: none;
+      }
+
+      .navbar {
+        justify-content: space-between;
+      }
+
+      .nav-links {
+        gap: 12px;
+      }
+    }
+
+    /* =========== MAIN CONTENT =========== */
+    main {
+      padding-top: 80px;
+      min-height: 100vh;
+    }
+
+    /* =========== CONTENT WRAPPER =========== */
+    .content-wrapper {
+      background: #fdfdfd;
+      margin: 20px;
+      border-radius: 20px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+      overflow: hidden;
+      animation: slideUp 0.8s ease-out;
+    }
+
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    section {
+      padding: 60px 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* =========== SECTION TITLES =========== */
+    .section-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 30px;
+      color: #6200ea;
+      text-align: center;
+      position: relative;
+      animation: fadeInUp 0.6s ease-out;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      width: 80px;
+      height: 4px;
+      background: linear-gradient(135deg, #6200ea 0%, #8e24aa 100%);
+      border-radius: 2px;
+      transform: translateX(-50%);
+    }
 
     /* =========== HOME / CAROUSEL =========== */
-    .carousel-container{position:relative;overflow:hidden;width:100%;height:420px;border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,.1);}
+    #home {
+      padding: 40px;
+    }
 
-    .carousel-slide{position:absolute;top:0;left:0;width:100%;height:100%;opacity:0;transition:opacity .8s ease-in-out;}
-    .carousel-slide.active{opacity:1;}
+    .carousel-container {
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+      height: 450px;
+      border-radius: 16px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+      animation: fadeInUp 0.8s ease-out 0.2s both;
+    }
 
-    .carousel-slide img{width:100%;height:100%;object-fit:cover}
+    .carousel-slide {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: opacity 0.8s ease-in-out;
+    }
 
-    .arrow{position:absolute;top:50%;transform:translateY(-50%);background:rgba(0,0,0,.4);border:none;color:#fff;font-size:2rem;width:45px;height:45px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(2px);}
-    .arrow:hover{background:rgba(0,0,0,.65);}
-    .arrow.left{left:20px}
-    .arrow.right{right:20px}
+    .carousel-slide.active {
+      opacity: 1;
+    }
 
-    /* =========== SOBRE, PROJETO, FEEDBACK (place‑holder styles) =========== */
-    .section-title{font-size:2rem;font-weight:700;margin-bottom:20px;color:#6200ea;text-align:center}
+    .carousel-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
 
-    /* Simple card grid */
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px}
-    .card{background:#fff;border-radius:12px;box-shadow:0 4px 8px rgba(0,0,0,.08);overflow:hidden;display:flex;flex-direction:column}
-    .card img{height:160px;object-fit:cover}
-    .card .content{padding:20px}
-    .card h3{margin-bottom:12px;font-size:1.2rem;color:#6200ea}
+    .arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(98, 0, 234, 0.8);
+      backdrop-filter: blur(10px);
+      border: none;
+      color: #fff;
+      font-size: 1.5rem;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+      border: 2px solid rgba(255, 255, 255, 0.2);
+    }
 
-    /* ===== FEEDBACK FORM ===== */
-    form.feedback{display:flex;flex-direction:column;gap:12px;max-width:500px;margin:auto}
-    form.feedback input,form.feedback textarea{width:100%;padding:12px;border:1px solid #ccc;border-radius:8px;font-family:inherit}
-    form.feedback button{padding:12px;border:none;border-radius:8px;font-weight:600;background:#6200ea;color:#fff;cursor:pointer}
-    form.feedback button:hover{opacity:.9}
+    .arrow:hover {
+      background: rgba(98, 0, 234, 1);
+      transform: translateY(-50%) scale(1.1);
+      box-shadow: 0 8px 20px rgba(98, 0, 234, 0.4);
+    }
 
-    #btn-topo{position:fixed;bottom:24px;right:24px;background:#6200ea;color:#fff;width:45px;height:45px;display:flex;align-items:center;justify-content:center;border-radius:50%;font-size:1.2rem;box-shadow:0 4px 12px rgba(0,0,0,.2);opacity:0;transition:opacity .3s}
-    #btn-topo.show{opacity:1}
+    .arrow.left {
+      left: 20px;
+    }
+
+    .arrow.right {
+      right: 20px;
+    }
+
+
+
+
+
+
+
+
+
+    /* =========== BOTÃO TOPO =========== */
+    #btn-topo {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: linear-gradient(135deg, #6200ea 0%, #8e24aa 100%);
+      color: #fff;
+      width: 55px;
+      height: 55px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      font-size: 1.3rem;
+      box-shadow: 0 8px 25px rgba(98, 0, 234, 0.3);
+      opacity: 0;
+      transition: all 0.3s ease;
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(10px);
+    }
+
+    #btn-topo.show {
+      opacity: 1;
+    }
+
+    #btn-topo:hover {
+      transform: translateY(-3px) scale(1.1);
+      box-shadow: 0 12px 30px rgba(98, 0, 234, 0.4);
+    }
 
     /* =========== FOOTER =========== */
-    footer{background:#f1f1f1;padding:24px 20px;margin-top:60px}
-    .container--footer{max-width:1200px;margin:auto;text-align:center}
-    .redes{display:flex;justify-content:center;gap:20px;margin-bottom:8px}
-    .redes a{font-size:1.4rem;color:var(--color);}
+    footer {
+      background: linear-gradient(135deg, #6200ea 0%, #8e24aa 100%);
+      color: #fff;
+      padding: 40px 20px;
+      margin-top: 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    footer::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/></svg>') repeat;
+      animation: float 20s linear infinite;
+    }
+
+    @keyframes float {
+      0% { transform: translateX(0) translateY(0); }
+      100% { transform: translateX(-50px) translateY(-50px); }
+    }
+
+    .container--footer {
+      max-width: 1200px;
+      margin: auto;
+      text-align: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .redes {
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+      margin-bottom: 20px;
+    }
+
+    .redes a {
+      font-size: 1.8rem;
+      color: #fff;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      transition: all 0.3s ease;
+    }
+
+    .redes a:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: translateY(-3px) scale(1.1);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    footer p {
+      font-size: 1rem;
+      opacity: 0.9;
+    }
+
+    /* =========== ANIMAÇÕES =========== */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* =========== RESPONSIVIDADE =========== */
+    @media (max-width: 768px) {
+      .content-wrapper {
+        margin: 10px;
+        border-radius: 16px;
+      }
+
+      section {
+        padding: 40px 25px;
+      }
+
+      .section-title {
+        font-size: 2rem;
+      }
+
+      .carousel-container {
+        height: 300px;
+      }
+
+      .arrow {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+      }
+
+      .arrow.left {
+        left: 15px;
+      }
+
+      .arrow.right {
+        right: 15px;
+      }
+
+      #btn-topo {
+        width: 45px;
+        height: 45px;
+        bottom: 20px;
+        right: 20px;
+      }
+
+      .redes {
+        gap: 20px;
+      }
+
+      .redes a {
+        width: 45px;
+        height: 45px;
+        font-size: 1.5rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      main {
+        padding-top: 100px;
+      }
+
+      section {
+        padding: 30px 20px;
+      }
+
+      .section-title {
+        font-size: 1.8rem;
+      }
+
+      .carousel-container {
+        height: 250px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -85,59 +554,60 @@
 
   <!-- ===== HEADER ===== -->
   <header class="topo" id="header">
-    <div class="logo">
-      <a href="#home"><img src="images/logo.png" alt="logo branca" class="imagemlogo"></a>
-      <button id="menu-toggle" aria-label="Abrir menu"><i class="fas fa-bars"></i></button>
-    </div>
-    <nav class="menu-container">
-      <ul class="menu">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#sobre">Sobre</a></li>
-        <li><a href="#projeto">Projeto</a></li>
-        <li><a href="#feedback">Feedback</a></li>
-      </ul>
+    <nav class="navbar">
+        </button>
+        <a href="#home">
+          <img src="images/logo.png" alt="TechBridge Logo" class="imagemlogo">
+        </a>
+      </div>
+
+      <!-- Barra de Pesquisa -->
+      <div class="search-container">
+        <form class="search-form" onsubmit="return false;">
+          <input 
+            type="text" 
+            class="search-input" 
+            placeholder="Pesquisar por qualquer curso"
+            id="search-input"
+          >
+          <button type="submit" class="search-btn">
+            <i class="fas fa-search"></i>
+          </button>
+        </form>
+      </div>
+
+      <!-- Links de Navegação -->
+      <div class="nav-links">
+        <a href="#" class="teach-link">Ensine na TechBridge</a>
+        
+        <div class="auth-buttons">
+          <a href="login.html" class="login-btn">Fazer login</a>
+          <a href="cadastro.html" class="signup-btn">Inscreva-se</a>
+        </div>
+      </div>
     </nav>
   </header>
 
   <!-- ===== MAIN ===== -->
   <main>
-    <!-- ===== HOME ===== -->
-    <section id="home">
-      <div class="carousel-container">
-        <div class="carousel-slide active"><img src="images/logica-de-programacao-na-pratica.jpg" alt="Curso 1"></div>
-        <div class="carousel-slide"><img src="images/ia.jpg" alt="Curso 2"></div>
-        <div class="carousel-slide"><img src="images/php.jpg" alt="Curso 3"></div>
-        <button class="arrow left" aria-label="Slide anterior">&#10094;</button>
-        <button class="arrow right" aria-label="Próximo slide">&#10095;</button>
-      </div>
-    </section>
+    <div class="content-wrapper">
+      <!-- ===== HOME ===== -->
+      <section id="home">
+        <div class="carousel-container">
+          <div class="carousel-slide active"><img src="images/logica-de-programacao-na-pratica.jpg" alt="Curso 1"></div>
+          <div class="carousel-slide"><img src="images/ia.jpg" alt="Curso 2"></div>
+          <div class="carousel-slide"><img src="images/php.jpg" alt="Curso 3"></div>
+          <button class="arrow left" aria-label="Slide anterior">&#10094;</button>
+          <button class="arrow right" aria-label="Próximo slide">&#10095;</button>
+        </div>
+      </section>
 
-    <!-- ===== SOBRE ===== -->
-    <section id="sobre">
-      <h2 class="section-title">Sobre o Projeto</h2>
-      <p style="max-width:800px;margin:auto;text-align:center">O <strong>Meu Curso Online</strong> é uma plataforma educacional inspirada em grandes marketplaces de cursos, criando pontes entre instrutores e alunos através de tecnologia acessível e experiência de aprendizagem interativa.</p>
-    </section>
 
-    <!-- ===== PROJETO ===== -->
-    <section id="projeto">
-      <h2 class="section-title">Projetos em Destaque</h2>
-      <div class="grid">
-        <div class="card"><img src="unnamed.png" alt="Juntos pelo Bem"><div class="content"><h3>Juntos pelo Bem</h3><p>A Faculdade Eniac e sua comunidade unidas na doação de roupas demonstram impacto social e empatia.</p></div></div>
-        <div class="card"><img src="img-pro3.jpg" alt="Alimento e Esperança"><div class="content"><h3>Alimento e Esperança</h3><p>Entrega de cestas básicas realizada por estudantes reforça o compromisso com um futuro justo e solidário.</p></div></div>
-        <div class="card"><img src="medicina].png" alt="Esperança em Cada Consulta"><div class="content"><h3>Esperança em Cada Consulta</h3><p>Profissionais de saúde levam cuidado e dignidade à comunidade, mostrando a força da educação.</p></div></div>
-      </div>
-    </section>
 
-    <!-- ===== FEEDBACK ===== -->
-    <section id="feedback">
-      <h2 class="section-title">Feedback</h2>
-      <form id="formFeedback" class="feedback">
-        <input type="text" id="nome" placeholder="Seu nome" required>
-        <textarea id="comentario" rows="4" placeholder="Comentário" required></textarea>
-        <button type="submit">Enviar Avaliação</button>
-      </form>
-      <div id="feedbackList" style="max-width:500px;margin:24px auto 0;"></div>
-    </section>
+
+
+
+    </div>
   </main>
 
   <!-- BOTÃO TOPO -->
@@ -147,9 +617,9 @@
   <footer>
     <div class="container--footer">
       <div class="redes">
-        <a href="https://www.instagram.com/eniac.oficial/" style="--color:#E1306c"><i class="fa-brands fa-instagram"></i></a>
-        <a href="https://www.youtube.com/@eniac.oficial" style="--color:#ff000f"><i class="fa-brands fa-youtube"></i></a>
-        <a href="https://www.facebook.com/eniac.oficial/?locale=pt_BR" style="--color:#4267b2"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="https://www.instagram.com/eniac.oficial/" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://www.youtube.com/@eniac.oficial" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
+        <a href="https://www.facebook.com/eniac.oficial/?locale=pt_BR" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
       </div>
       <p>&copy; 2025 Meu Curso Online. Todos os direitos reservados.</p>
     </div>
@@ -158,35 +628,78 @@
   <!-- ===== SCRIPT ===== -->
   <script>
     /* ===== MENU TOGGLE ===== */
-    const menuToggle=document.getElementById('menu-toggle');
-    const menu=document.querySelector('.menu');
-    menuToggle.addEventListener('click',()=>{
-      menu.classList.toggle('open');
+    const menuBtn = document.getElementById('menu-btn');
+    
+    menuBtn.addEventListener('click', () => {
+      // Aqui você pode adicionar funcionalidade para o menu dropdown
+      console.log('Menu clicado');
+    });
+
+    /* ===== BARRA DE PESQUISA ===== */
+    const searchInput = document.getElementById('search-input');
+    const searchForm = document.querySelector('.search-form');
+    
+    searchForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const searchTerm = searchInput.value.trim();
+      if (searchTerm) {
+        console.log('Pesquisando por:', searchTerm);
+        // Aqui você pode adicionar a lógica de pesquisa
+      }
     });
 
     /* ===== CAROUSEL ===== */
-    const slides=document.querySelectorAll('.carousel-slide');
-    const btnPrev=document.querySelector('.arrow.left');
-    const btnNext=document.querySelector('.arrow.right');
-    let current=0;let timer;
+    const slides = document.querySelectorAll('.carousel-slide');
+    const btnPrev = document.querySelector('.arrow.left');
+    const btnNext = document.querySelector('.arrow.right');
+    let current = 0;
+    let timer;
 
-    function showSlide(i){slides.forEach((s,idx)=>{s.classList.toggle('active',idx===i)});}
-    function next(){current=(current+1)%slides.length;showSlide(current);} 
-    function prev(){current=(current-1+slides.length)%slides.length;showSlide(current);} 
-    btnNext.addEventListener('click',()=>{next();resetTimer();});
-    btnPrev.addEventListener('click',()=>{prev();resetTimer();});
-    function startTimer(){timer=setInterval(next,5000);} 
-    function resetTimer(){clearInterval(timer);startTimer();}
-    showSlide(current);startTimer();
+    function showSlide(i) {
+      slides.forEach((s, idx) => {
+        s.classList.toggle('active', idx === i);
+      });
+    }
+
+    function next() {
+      current = (current + 1) % slides.length;
+      showSlide(current);
+    }
+
+    function prev() {
+      current = (current - 1 + slides.length) % slides.length;
+      showSlide(current);
+    }
+
+    btnNext.addEventListener('click', () => {
+      next();
+      resetTimer();
+    });
+
+    btnPrev.addEventListener('click', () => {
+      prev();
+      resetTimer();
+    });
+
+    function startTimer() {
+      timer = setInterval(next, 5000);
+    }
+
+    function resetTimer() {
+      clearInterval(timer);
+      startTimer();
+    }
+
+    showSlide(current);
+    startTimer();
 
     /* ===== BOTÃO TOPO VISIBILIDADE ===== */
-    const btnTopo=document.getElementById('btn-topo');
-    window.addEventListener('scroll',()=>{btnTopo.classList.toggle('show',window.scrollY>300);});
-
-    /* ===== FEEDBACK FORM ===== */
-    const form=document.getElementById('formFeedback');const list=document.getElementById('feedbackList');
-    form.addEventListener('submit',e=>{e.preventDefault();const nome=document.getElementById('nome').value.trim();const comentario=document.getElementById('comentario').value.trim();if(nome&&comentario){const div=document.createElement('div');div.style.border='1px solid #ccc';div.style.borderRadius='8px';div.style.padding='12px';div.style.marginBottom='12px';div.innerHTML=`<strong>${nome}</strong><p>${comentario}</p>`;list.prepend(div);form.reset();}}
-    );
+    const btnTopo = document.getElementById('btn-topo');
+    
+    window.addEventListener('scroll', () => {
+      btnTopo.classList.toggle('show', window.scrollY > 300);
+    });
   </script>
 </body>
 </html>
+
