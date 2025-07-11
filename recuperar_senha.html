@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Recuperar Senha - Meu Curso Online</title>
+  <!-- Fontes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="style/recuperar_senha.css">
+</head>
+<body>
+  <div class="login-container">
+    <!-- Lado Esquerdo - Branding -->
+    <div class="branding-side">
+      <div class="logo-section">
+        <div class="logo-icon">
+          <i class="fas fa-graduation-cap"></i>
+        </div>
+        <h1 class="brand-title">Meu Curso Online</h1>
+        <p class="brand-subtitle">Conectando conhecimento e oportunidades através da educação digital</p>
+      </div>
+    </div>
+
+    <!-- Lado Direito - Formulário -->
+    <div class="form-side">
+      <div class="form-header">
+        <h2 class="form-title">Recuperar Senha</h2>
+        <p class="form-subtitle">Informe seu e-mail para receber as instruções de recuperação</p>
+      </div>
+
+      <form class="recovery-form" id="recoveryForm">
+        <div class="input-group">
+          <label for="email">E-mail</label>
+          <div class="input-wrapper">
+            <i class="fas fa-envelope"></i>
+            <input 
+              type="email" 
+              id="email" 
+              name="email" 
+              class="form-input" 
+              placeholder="Digite seu e-mail"
+              required
+            >
+          </div>
+        </div>
+
+        <button type="submit" class="recovery-button">
+          Enviar Instruções
+        </button>
+      </form>
+      
+      <div class="signup-link">
+        Lembrou da senha? <a href="login.html">Voltar para o Login</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("recoveryForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const email = document.getElementById("email").value;
+      if (!email) {
+        alert("Por favor, digite seu e-mail.");
+        return;
+      }
+      if (!isValidEmail(email)) {
+        alert("Por favor, digite um e-mail válido.");
+        return;
+      }
+      alert("Instruções de recuperação de senha enviadas para " + email);
+      // Aqui você pode adicionar a lógica para enviar o e-mail de recuperação
+    });
+
+    function isValidEmail(email) {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return emailRegex.test(email);
+    }
+  </script>
+</body>
+</html>
+
