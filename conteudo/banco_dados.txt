@@ -1,0 +1,23 @@
+-- Seleção do banco de dados
+USE test;
+
+-- Criação da tabela `usuario`
+CREATE TABLE `usuario` (
+  `ID` INT(11) NOT NULL,
+  `nome` VARCHAR(30) NOT NULL,
+  `sobrenome` VARCHAR(30) NOT NULL,
+  `sexo` TINYINT(4) DEFAULT NULL,
+  `email` VARCHAR(50) NOT NULL,
+  `senha` VARCHAR(32) NOT NULL,
+  `data_nasc` DATETIME NOT NULL,
+  `Telefone` VARCHAR(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- Adição de índices
+ALTER TABLE `usuario`
+  ADD PRIMARY KEY (`ID`),
+  ADD UNIQUE KEY `email` (`email`);
+
+-- Configuração de auto incremento
+ALTER TABLE `usuario`
+  MODIFY `ID` INT(11) NOT NULL AUTO_INCREMENT;
