@@ -175,32 +175,4 @@
   background-color: #0056b3;
 }
 
-/* Responsividade */
-@media (max-width: 768px) {
-  #meus-cursos-header h1 {
-    font-size: 2em;
-  }
-
-  #meus-cursos-header p {
-    font-size: 1em;
-  }
-
-  #user-info, #course-list {
-    margin: 20px auto;
-    padding: 0 15px;
-  }
-
-  #user-info {
-    padding: 20px;
-  }
-
-  .courses-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .course-card .course-image {
-    height: 200px;
-  }
-}
-
 

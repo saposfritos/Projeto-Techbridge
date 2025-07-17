@@ -248,64 +248,9 @@
   }
 
   /* =========== RESPONSIVIDADE =========== */
-  @media (max-width: 768px) {
-    .login-container {
-      grid-template-columns: 1fr;
-      max-width: 400px;
-    }
 
-    .branding-side {
-      padding: 40px 30px;
-      min-height: 200px;
-    }
 
-    .brand-title {
-      font-size: 1.8rem;
-    }
 
-    .brand-subtitle {
-      font-size: 1rem;
-    }
-
-    .form-side {
-      padding: 40px 30px;
-    }
-
-    .form-title {
-      font-size: 1.6rem;
-    }
-  }
-
-  @media (max-width: 480px) {
-    body {
-      padding: 10px;
-    }
-
-    .branding-side {
-      padding: 30px 20px;
-    }
-
-    .form-side {
-      padding: 30px 20px;
-    }
-
-    .logo-icon {
-      width: 60px;
-      height: 60px;
-    }
-
-    .logo-icon i {
-      font-size: 2rem;
-    }
-
-    .brand-title {
-      font-size: 1.5rem;
-    }
-
-    .form-title {
-      font-size: 1.4rem;
-    }
-  }
 
   /* =========== ANIMAÇÕES EXTRAS =========== */
   .input-group {
