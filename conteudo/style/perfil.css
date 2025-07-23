@@ -634,4 +634,35 @@ input:checked + .slider:before {
     font-size: 0.9rem;
   }
 }
+.profile-section {
+  display: flex;
+  align-items: center;
+}
 
+.profile-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #6200ea;
+  font-weight: 500;
+  font-size: 0.95rem;
+  padding: 10px 16px;
+  border: 1px solid #6200ea;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  background: transparent;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.profile-link:hover {
+  background: #6200ea;
+  color: #fff;
+}
+
+.profile-link i {
+  font-size: 1.2rem;
+}
+.my-courses-link{
+  color:#6200ea;
+}

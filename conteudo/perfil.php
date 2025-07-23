@@ -85,7 +85,7 @@ if (isset($_SESSION['usuario'])) {
             <a href="addcurso.php" class="teach-link">Adicionar Cursos</a>
             <a href="cursos.php" class="my-courses-link">Cursos</a>
             <a href="ensine.php" class="teach-link">Ensine na TechBridge</a>
-            <a href="meus_cursos.php" class="my-courses-link">Meus Cursos</a>
+            
             <div class="profile-section">
                 <a href="perfil.php" class="profile-link">
                     <i class="fas fa-user-circle"></i>
@@ -98,7 +98,7 @@ if (isset($_SESSION['usuario'])) {
       <div class="nav-links">
             <a href="ensine.php" class="teach-link">Ensine na TechBridge</a>
             <a href="cursos.php" class="my-courses-link">Cursos</a>
-            <a href="meus_cursos.php" class="my-courses-link">Meus Cursos</a>
+            
             <div class="profile-section">
                 <a href="perfil.php" class="profile-link">
                     <i class="fas fa-user-circle"></i>

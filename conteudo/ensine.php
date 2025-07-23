@@ -54,7 +54,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
   <!-- ===== HEADER ===== -->
   <header class="topo" id="header">
-    <nav class="navbar">
+<nav class="navbar">
       <div class="logo-section">
         <a href="home.php">
           <img src="images/image-removebg-preview.png" alt="TechBridge Logo" class="imagemlogo">
@@ -76,8 +76,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </form>
       </div>
 
-   <!-- Links de Navegação -->
-   <?php if (!isset($_SESSION['usuario'])): ?>
+      <!-- Links de Navegação -->
+   <?php if (!isset($_SESSION["usuario"])): ?>
       <!-- Não logado -->
       <div class="nav-links">
         <div class="auth-buttons">
@@ -85,17 +85,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           <a href="cadastro.php" class="signup-btn">Inscreva-se</a>
         </div>
       </div>
-    <?php elseif ( $_SESSION['Acesso'] == 1): ?>
+    <?php elseif ( $_SESSION["Acesso"] == 1): ?>
       <!-- Admin -->
       <div class="nav-links">
             <a href="addcurso.php" class="teach-link">Adicionar Cursos</a>
             <a href="cursos.php" class="my-courses-link">Cursos</a>
             <a href="ensine.php" class="teach-link">Ensine na TechBridge</a>
-            <a href="meus_cursos.php" class="my-courses-link">Meus Cursos</a>
+ 
             <div class="profile-section">
                 <a href="perfil.php" class="profile-link">
                     <i class="fas fa-user-circle"></i>
-                    <span><?= htmlspecialchars($_SESSION['nome']) ?></span>
+                    <span><?= htmlspecialchars($_SESSION["nome"]) ?></span>
                 </a>
             </div>
         </div>
@@ -104,11 +104,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       <div class="nav-links">
             <a href="ensine.php" class="teach-link">Ensine na TechBridge</a>
             <a href="cursos.php" class="my-courses-link">Cursos</a>
-            <a href="meus_cursos.php" class="my-courses-link">Meus Cursos</a>
+  
             <div class="profile-section">
                 <a href="perfil.php" class="profile-link">
                     <i class="fas fa-user-circle"></i>
-                    <span><?= htmlspecialchars($_SESSION['nome']) ?></span>
+                    <span><?= htmlspecialchars($_SESSION["nome"]) ?></span>
                 </a>
             </div>
         </div>

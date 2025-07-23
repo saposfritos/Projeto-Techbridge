@@ -103,7 +103,6 @@
   .search-btn:hover {
     color: #6200ea;
   }
-
   /* ===== NAVEGAÇÃO PRINCIPAL ===== */
   .nav-links {
     display: flex;
@@ -938,9 +937,6 @@
 
   /* =========== RESPONSIVIDADE =========== */
   @media (max-width: 1024px) {
-    .search-container {
-      max-width: 300px;
-    }
     
     .nav-links {
       gap: 16px;
@@ -965,10 +961,6 @@
     .navbar {
       padding: 12px 16px;
       gap: 12px;
-    }
-
-    .search-container {
-      max-width: 250px;
     }
 
     .teach-link {
@@ -1070,9 +1062,6 @@
   }
 
   @media (max-width: 640px) {
-    .search-container {
-      display: none;
-    }
 
     .navbar {
       justify-content: space-between;
@@ -1121,9 +1110,7 @@
 
     .benefit-card,
     .category-card,
-    .testimonial-card {
-      padding: 25px 20px;
-    }
+    
 
     .cta-title {
       font-size: 1.8rem;
@@ -1133,12 +1120,41 @@
       font-size: 1rem;
     }
 
-    .modal-content {
-      padding: 20px;
-    }
+  
 
     .modal-title {
       font-size: 1.5rem;
     }
   }
+.profile-section {
+  display: flex;
+  align-items: center;
+}
 
+.profile-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #6200ea;
+  font-weight: 500;
+  font-size: 0.95rem;
+  padding: 10px 16px;
+  border: 1px solid #6200ea;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  background: transparent;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.profile-link:hover {
+  background: #6200ea;
+  color: #fff;
+}
+
+.profile-link i {
+  font-size: 1.2rem;
+}
+.my-courses-link{
+  color:#6200ea;
+}
