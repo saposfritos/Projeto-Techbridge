@@ -1,0 +1,32 @@
+﻿>baixe XAMPP.
+
+
+>baixe visual studio.
+
+
+>baixe 'conteudo'.
+
+
+>arreste e coloque o arquivo 'conteudo' para C:\xampp\htdocs
+
+###Não extrai o conteudo na pasta htdocs se não da erro.
+
+
+>abra XAMPP e clique em 'start' nos modulos 'Apache' e 'MYSQL'.
+
+
+>Clique em 'Admin' no modulo 'MYSQL', na tab aberta clique em 'SQL'.
+
+
+>Copie o texto do arquivo 'banco_dados.txt' e cole no campo de texto na sessão SQL.
+
+
+>CLique em executar.
+
+
+>Quando o banco de dados for criado, para acessar um arquivo php, 
+
+va no seu navegador e escreva 'http://localhost/conteudo/home.php' na barrade link e pressione enter.
+
+>Dai para acessar outros arquivos é só mudar a parte do link /home.php para outros arquivos presentes na pasta, como /ensine.php ou /meus_cursos.php.
+
