@@ -223,10 +223,7 @@ session_start();
               </div>
             </div>
             <div class="course-actions">
-              <button class="btn-primary" onclick="redirectToCourse(${course.id})>
-                <i class="fas fa-play"></i>
-                Inscrever-se
-              </button>
+              
 
               
               <button class="btn-secondary" onclick="redirectToCourse(${course.id})">

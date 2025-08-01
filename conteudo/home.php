@@ -32,7 +32,7 @@ if (isset($_SESSION['usuario'])) {
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Meu Curso Online</title>
+  <title>TechBridge</title>
   <!-- Fontes -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -103,9 +103,9 @@ if (isset($_SESSION['usuario'])) {
       <section id="home">
         <div class="carousel-container">
           <div class="carousel-slide active"><img src="images/im1.png" alt="Curso 1"></div>
-          <div class="carousel-slide"><img src="images/i2.jpg" alt="Curso 2"></div>
+          <div class="carousel-slide"><img src="images/im2.jpg" alt="Curso 2"></div>
           <div class="carousel-slide"><img src="images/im3.png" alt="Curso 3"></div>
-          <div class="carousel-slide"><img src="images/i4.jpg" alt="Curso 4"></div>
+          <div class="carousel-slide"><img src="images/im4.jpg" alt="Curso 4"></div>
           <div class="carousel-slide"><img src="images/im5.png" alt="Curso 5"></div>
           <button class="arrow left" aria-label="Slide anterior">&#10094;</button>
           <button class="arrow right" aria-label="Próximo slide">&#10095;</button>
@@ -284,104 +284,135 @@ if (isset($_SESSION['usuario'])) {
   <!-- ===== SCRIPT ===== -->
   <script>
     /* ===== MENU TOGGLE ===== */
+    // Aguardar o DOM estar completamente carregado
+document.addEventListener('DOMContentLoaded', function() {
+    /* ===== MENU TOGGLE ===== */
     const menuBtn = document.getElementById('menu-btn');
     
     if (menuBtn) {
-      menuBtn.addEventListener('click', () => {
-        // Aqui você pode adicionar funcionalidade para o menu dropdown
-        console.log('Menu clicado');
-      });
+        menuBtn.addEventListener('click', () => {
+            console.log('Menu clicado');
+        });
     }
 
     /* ===== BARRA DE PESQUISA ===== */
-    const searchInput = document.getElementById('search-input');
     const searchForm = document.querySelector('.search-form');
-    
-    searchForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const searchTerm = searchInput.value.trim();
-      if (searchTerm) {
-        console.log('Pesquisando por:', searchTerm);
-        // Aqui você pode adicionar a lógica de pesquisa
-      }
-    });
+    if (searchForm) {
+        const searchInput = document.getElementById('search-input');
+        
+        searchForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const searchTerm = searchInput.value.trim();
+            if (searchTerm) {
+                console.log('Pesquisando por:', searchTerm);
+            }
+        });
+    }
 
     /* ===== CAROUSEL ===== */
     const slides = document.querySelectorAll('.carousel-slide');
     const btnPrev = document.querySelector('.arrow.left');
     const btnNext = document.querySelector('.arrow.right');
-    let current = 0;
-    let timer;
+    
+    // Verificar se os elementos existem
+    if (slides.length > 0 && btnPrev && btnNext) {
+        let current = 0;
+        let timer;
 
-    function showSlide(i) {
-      slides.forEach((s, idx) => {
-        s.classList.toggle('active', idx === i);
-      });
+        function showSlide(i) {
+            slides.forEach((slide, idx) => {
+                slide.classList.remove('active');
+                if (idx === i) {
+                    slide.classList.add('active');
+                }
+            });
+        }
+
+        function next() {
+            current = (current + 1) % slides.length;
+            showSlide(current);
+        }
+
+        function prev() {
+            current = (current - 1 + slides.length) % slides.length;
+            showSlide(current);
+        }
+
+        function startTimer() {
+            timer = setInterval(next, 5000); // Muda a cada 5 segundos
+        }
+
+        function resetTimer() {
+            clearInterval(timer);
+            startTimer();
+        }
+
+        // Event listeners para as setas
+        btnNext.addEventListener('click', () => {
+            next();
+            resetTimer();
+        });
+
+        btnPrev.addEventListener('click', () => {
+            prev();
+            resetTimer();
+        });
+
+        // Pausar carrossel quando mouse estiver sobre ele
+        const carouselContainer = document.querySelector('.carousel-container');
+        if (carouselContainer) {
+            carouselContainer.addEventListener('mouseenter', () => {
+                clearInterval(timer);
+            });
+
+            carouselContainer.addEventListener('mouseleave', () => {
+                startTimer();
+            });
+        }
+
+        // Inicializar carrossel
+        showSlide(current);
+        startTimer();
+        
+        console.log('Carrossel inicializado com', slides.length, 'slides');
+    } else {
+        console.error('Elementos do carrossel não encontrados');
     }
-
-    function next() {
-      current = (current + 1) % slides.length;
-      showSlide(current);
-    }
-
-    function prev() {
-      current = (current - 1 + slides.length) % slides.length;
-      showSlide(current);
-    }
-
-    btnNext.addEventListener('click', () => {
-      next();
-      resetTimer();
-    });
-
-    btnPrev.addEventListener('click', () => {
-      prev();
-      resetTimer();
-    });
-
-    function startTimer() {
-      timer = setInterval(next, 5000);
-    }
-
-    function resetTimer() {
-      clearInterval(timer);
-      startTimer();
-    }
-
-    showSlide(current);
-    startTimer();
 
     /* ===== BOTÃO TOPO VISIBILIDADE ===== */
     const btnTopo = document.getElementById('btn-topo');
     
-    window.addEventListener('scroll', () => {
-      btnTopo.classList.toggle('show', window.scrollY > 300);
-    });
+    if (btnTopo) {
+        window.addEventListener('scroll', () => {
+            btnTopo.classList.toggle('show', window.scrollY > 300);
+        });
+    }
 
     /* ===== ANIMAÇÃO DOS CARDS DE CURSO ===== */
     const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
     };
 
     const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry, index) => {
-        if (entry.isIntersecting) {
-          setTimeout(() => {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
-          }, index * 100);
-        }
-      });
+        entries.forEach((entry, index) => {
+            if (entry.isIntersecting) {
+                setTimeout(() => {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }, index * 100);
+            }
+        });
     }, observerOptions);
 
     // Aplicar animação aos cards de curso
     document.querySelectorAll('.course-card').forEach((card, index) => {
-      card.style.opacity = '0';
-      card.style.transform = 'translateY(30px)';
-      card.style.transition = 'all 0.6s ease';
-      observer.observe(card);
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(30px)';
+        card.style.transition = 'all 0.6s ease';
+        observer.observe(card);
     });
+});
   </script>
 </body>
 </html>

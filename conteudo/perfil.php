@@ -203,36 +203,28 @@ if (isset($_SESSION['usuario'])) {
                   <span>
                   <?= htmlspecialchars($usuario['nome'] . ' ' . $usuario['sobrenome']) ?>
             </span>
-                  <button class="edit-btn" title="Editar">
-                    <i class="fas fa-edit"></i>
-                  </button>
+                  
                 </div>
               </div>
               <div class="info-item">
                 <label>Email</label>
                 <div class="info-value">
                   <span><?= htmlspecialchars($usuario['email']) ?></span>
-                  <button class="edit-btn" title="Editar">
-                    <i class="fas fa-edit"></i>
-                  </button>
+                  
                 </div>
               </div>
               <div class="info-item">
                 <label>Telefone</label>
                 <div class="info-value">
                   <span><?= htmlspecialchars($usuario['telefone']) ?></span>
-                  <button class="edit-btn" title="Editar">
-                    <i class="fas fa-edit"></i>
-                  </button>
+                  
                 </div>
               </div>
               <div class="info-item">
                 <label>Data de Nascimento</label>
                 <div class="info-value">
                   <span><?= date("d/m/Y", strtotime($usuario['data_nasc'])) ?></span>
-                  <button class="edit-btn" title="Editar">
-                    <i class="fas fa-edit"></i>
-                  </button>
+                  
                 </div>
               </div>
             </div>
@@ -248,54 +240,42 @@ if (isset($_SESSION['usuario'])) {
                 <label>Null</label>
                 <div class="info-value">
                   <span>#</span>
-                  <button class="edit-btn" title="Editar">
-                    <i class="fas fa-edit"></i>
-                  </button>
+                  
                 </div>
               </div>
               <div class="info-item">
                 <label>Null</label>
                 <div class="info-value">
                   <span>#</span>
-                  <button class="edit-btn" title="Editar">
-                    <i class="fas fa-edit"></i>
-                  </button>
+                  
                 </div>
               </div>
               <div class="info-item">
                 <label>Null</label>
                 <div class="info-value">
                   <span>#</span>
-                  <button class="edit-btn" title="Editar">
-                    <i class="fas fa-edit"></i>
-                  </button>
+                  
                 </div>
               </div>
               <div class="info-item">
                 <label>Null</label>
                 <div class="info-value">
                   <span>#</span>
-                  <button class="edit-btn" title="Editar">
-                    <i class="fas fa-edit"></i>
-                  </button>
+                  
                 </div>
               </div>
               <div class="info-item">
                 <label>Null</label>
                 <div class="info-value">
                   <span>#</span>
-                  <button class="edit-btn" title="Editar">
-                    <i class="fas fa-edit"></i>
-                  </button>
+                  
                 </div>
               </div>
               <div class="info-item">
                 <label>Null</label>
                 <div class="info-value">
                   <span>#</span>
-                  <button class="edit-btn" title="Editar">
-                    <i class="fas fa-edit"></i>
-                  </button>
+                  
                 </div>
               </div>
             </div>

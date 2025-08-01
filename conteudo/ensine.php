@@ -167,6 +167,54 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </div>
   </div>
 
+  <!-- Modal de Cadastro de Instrutor -->
+  <div id="instructor-modal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeInstructorForm()">&times;</span>
+      <h2 class="modal-title">Torne-se um Instrutor</h2>
+      <form method="POST" class="instructor-form">
+        <div class="form-group">
+          <label for="nome">Nome Completo</label>
+          <input type="text" id="nome" name="nome" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="email">E-mail</label>
+          <input type="email" id="email" name="email" value="email" required >
+        </div>
+        
+        <div class="form-group">
+          <label for="telefone">Telefone</label>
+          <input type="tel" id="telefone" name="telefone" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="experiencia">Área de Experiência</label>
+          <select id="experiencia" name="experiencia" required>
+            <option value="">Selecione uma área</option>
+            <option value="programacao">Programação</option>
+            <option value="design">Design</option>
+            <option value="data-science">Data Science</option>
+            <option value="mobile">Desenvolvimento Mobile</option>
+            <option value="devops">Cloud & DevOps</option>
+            <option value="ia">Inteligência Artificial</option>
+            <option value="outros">Outros</option>
+          </select>
+        </div>
+        
+        <div class="form-group">
+          <label for="descricao">Conte-nos sobre sua experiência</label>
+          <textarea id="descricao" name="descricao" rows="4" placeholder="Descreva sua experiência profissional e o que você gostaria de ensinar..." required></textarea>
+        </div>
+        
+        <button type="submit" class="btn-primary">
+          <i class="fas fa-paper-plane"></i>
+          Enviar Candidatura
+        </button>
+      </form>
+    </div>
+  </div>
+  
   <!-- ===== SCRIPT ===== -->
   <script>
     /* ===== NAVEGAÇÃO SUAVE ===== */
